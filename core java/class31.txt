@@ -1,0 +1,288 @@
+ii) Parameterized constructor 
+============================
+Suppose if we are passing atleast one argument to user defined constructor then that constructor is called parameterized constructor.
+
+ex:
+---
+class Employee
+{
+	//current class variables
+	private int empId;
+	private String empName;
+	private double empSal;
+	
+	//parameterized const 
+	Employee(int empId,String empName,double empSal)
+	{
+		this.empId = empId;
+		this.empName = empName;
+		this.empSal = empSal;
+	}
+	public void getEmployeeDetails()
+	{
+		System.out.println("Employee Id :"+empId);
+		System.out.println("Employee Name :"+empName);
+		System.out.println("Employee Salary :"+empSal);
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Employee e = new Employee(201,"Jose",1000d);
+		e.getEmployeeDetails();
+	}
+}
+
+2) Default constructor 
+======================
+It is a compiler generated constructor for every java program where we are not defining atleast zero argument constructor.
+
+To see default constructor we need to use below command.
+ex:
+	javac   Test.java
+
+	javap  -c  Test 
+
+Diagram: class31.1
+
+
+Interfaces
+==========
+Interface is a blue print of a class and it is a collection of abstract methods, default methods and static methods.
+
+Abstract method is a incomplete method because it ends with semicolon and does not have any body.
+ex:
+	void methodOne();
+
+It is not possible to create object of interfaces.
+
+To write implementation of abstract methods we will use implementation class.
+
+It is possible to create object for implementation class because it contains method with body.
+
+By default every abstract method is a public and abstract.
+ex:
+	public abstract void methodOne();
+
+Interface contains only constants i.e public static final.
+
+If we know only specification then we need to use interface.
+
+ex:
+---
+interface A 
+{
+	public abstract void methodOne();
+}
+class B implements A 
+{
+	@Override 
+	public void methodOne()
+	{
+		System.out.println("Method-One");
+	}
+}
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		A a = new B();
+		a.methodOne();
+	}
+}
+
+ex:
+---
+interface A 
+{
+	public abstract void methodOne();
+}
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//Anonymous inner class
+		A a = new A()
+		{
+			public void methodOne()
+			{
+				System.out.println("Method-One");
+			}
+		};
+		a.methodOne();	
+	}
+}
+
+How to achieve multiple inheritance in java
+============================================
+interface Dog
+{
+	void run();
+}
+interface Cat
+{
+	void sleep();
+}
+class Animal implements Dog,Cat
+{
+	@Override 
+	public void run()
+	{
+		System.out.println("Dog Run");
+	}
+	@Override
+	public void sleep()
+	{
+		System.out.println("Cat Sleep");
+	}
+}
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Animal a = new Animal();
+		a.run();
+		a.sleep();
+	}
+}
+
+Default methods  in interface
+=============================
+Default methods in interface introduced in Java 8.
+
+Java provides facility to declare the methods in interface and tagged with default keyword.
+ex:
+	default  void  m1()
+	{
+		-
+		- //code to be execute
+		-	
+	}
+
+Default methods are non-abstract methods and we can override.
+
+ex:
+---
+interface A 
+{
+	//abstract method 
+	public abstract void m1();
+	
+	//default method 
+	default void m2()
+	{
+		System.out.println("M2-Method");
+	}
+}
+class B implements A 
+{
+	@Override
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		A a = new B();	
+		a.m1();
+		a.m2();
+	}
+}
+
+ex:
+---
+interface A 
+{
+	//abstract method 
+	public abstract void m1();
+	
+	//default method 
+	default void m2()
+	{
+		System.out.println("M2-Method");
+	}
+}
+class B implements A 
+{
+	@Override
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+	@Override
+	public void m2()
+	{
+		System.out.println("Override-M2-Method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		A a = new B();	
+		a.m1();
+		a.m2();
+	}
+}
+
+Static method in interface 
+===========================
+Static method in interface introduced in Java 8.
+
+Java provides facility to declare methods in interface and tagged with static keyword.
+
+ex:
+	static void m1()
+	{
+		-
+		- // code to be execute
+		-
+	}
+
+It is a non-abstract method and we can't override.
+
+ex:
+--
+interface A 
+{
+	static void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		A.m1();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

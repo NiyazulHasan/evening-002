@@ -1,0 +1,143 @@
+Comments in java
+================
+Comments are created for documentation purpose.
+
+Comments are used to improve readability of our code.
+
+It is highly recommended to use comments in regular programming.
+
+Diagram: class4.1
+
+Comments will not display in output because they won't compiled by the compiler.
+
+We have two types of comments.
+
+1) Single Line comment 
+------------------
+	It is used to comment a single line.
+	ex:
+		// comment here 
+
+2) Multiple Line comment 
+--------------------
+	It is used to comment multiple lines.
+	ex:	
+		/*
+			-
+			- comment here 
+			-
+		*/
+
+Program 
+-------
+//class declaration 
+class  Test
+{
+	//main method 
+	public static void main(String[] args)
+	{
+		//variable declaration 
+		int x = 10;
+
+		//output statement 
+		System.out.println(x); 
+	}
+}
+
+
+Q) What is the difference between C++ and Java?
+
+C++						Java
+-----						-----
+It is developed by Bjarne Stroustrup.		It is developed by James Gosling.
+
+It is a partial object oriented programming 	It is a purely object oriented programming 
+language.					language.
+
+It is platform dependent.			It is platform independent.
+
+Memory allocation and deallocation will taken	Memory allocation and deallocation will taken 
+care by a programmer.				care by a JVM.
+
+It supports multiple inheritance.		It does not support multiple inheritance.
+
+It supports goto statement.			It does not support goto statement.
+
+It supports pointers.				It does not support pointers.
+
+It supports operator overloading.		It does not support operator overloading.
+
+It supports pre-processor directory(#).		It does not support preprocessor directory(#).
+
+It contains three access specifiers i.e 	It contains four access modifiers i.e default,
+public, private and protected.			public,private and protected.
+
+It contains three types of loops i.e do while 	It contains four types of loops i.e do while 
+loop, while loop and for loop.			loop, while loop, for loop and for each loop.
+
+We use .cpp extension to save the C++ program.	We use .java extension to save java program.
+
+Q) What is the difference between python and java?
+
+Python						Java
+------						-----
+It is a product of Microsoft.			It is a product of Oracle Corporation.
+
+It is developed by Guido Van Rossum.		It is developed by James Gosling.
+
+It is a scripting language.			It is a non-scripting language.
+
+It is a interpreted language.			It is a compiled language.
+
+It contains PVM.				It contains JVM.
+(Python Virtual Machine)			(Java Virtual Machine)
+
+It is a dynamically typed language.		It is a statically typed language.
+
+Performance is low.				Performance is high.
+
+There is less security.				It is highly secured.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

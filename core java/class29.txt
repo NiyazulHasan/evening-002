@@ -1,0 +1,272 @@
+2) Multi-Level inheritance 
+===========================
+If we derived a class in the presence of one base class and that class is derived from another base class is called multi-level inheritance.
+
+ex:
+	A
+	|
+	|
+	B
+	|
+	|
+	C 
+
+ex:
+---
+class A 
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class B extends A 
+{
+	public void m2()
+	{
+		System.out.println("M2-Method");
+	}
+}
+class C extends B 
+{
+	public void m3()
+	{
+		System.out.println("M3-Method");
+	}
+}
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		A a = new A();
+		a.m1();
+		
+		B b = new B();
+		b.m1();
+		b.m2();
+		
+		C c = new C();
+		c.m1();
+		c.m2();
+		c.m3();
+	}
+}
+
+3) Multiple inheritance 
+=======================
+In java, we can extends more then one class simultenously because java does not support multiple inheritance.
+ex:
+	class A 
+	{
+	}
+	class B 
+	{	
+	}
+	class C extends A,B  --> Invalid 
+	{
+	}
+
+But interface can extends more then one interface so we can achieve multiple inheritance concept through interfaces.
+ex:
+	interface A 
+	{
+	}
+	interface B
+	{
+	}
+	interface C extends A,B --> valid 
+	{	
+	}
+	
+If our class does not extends any other class then it is a direct child class of Object class.
+ex:			Diag:
+	class A 		Object
+	{			|
+	}			|
+				A 
+
+If our class extends some other class then it is a indirect child class of Object class.
+ex:			diag:
+	class A 		Object
+	{			|
+	}			|
+	class B extends A 	A 
+	{			|
+	}			|			
+				B 
+
+Java does not support cylic inheritance.
+ex:
+	class A extends B 
+	{
+	}
+	class B extends A 
+	{	
+	}
+
+Q) Why java does not support multiple inheritance?
+
+There is a chance of raising ambiguity problem thats why java does not support multiple inheritance.
+
+ex:
+	P1.m1()		   	  P2.m1()
+	|------------------------------|
+			|	
+			c.m1();	 
+
+4) Hierarchical inheritance
+===========================
+If we derived multiple classes by using one base class is called hierarchical inheritance.
+
+ex:
+		A
+		|
+	|----------------|
+	B		 C 
+
+ex:
+---
+class A 
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class B extends A 
+{
+	public void m2()
+	{
+		System.out.println("M2-Method");
+	}
+}
+class C extends A 
+{
+	public void m3()
+	{
+		System.out.println("M3-Method");
+	}
+}
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		A a = new A();
+		a.m1();
+		
+		B b = new B();
+		b.m1();
+		b.m2();
+		
+		C c = new C();
+		c.m1();
+		c.m3();
+	}
+}
+
+5) Hybrid inheritance 
+====================
+It is a combination of more then two inheritance.
+Java does not support hybrid inheritance.
+ex:
+		A
+		|
+	|----------------|
+	B		 C 
+	|----------------|
+		|
+		D 
+	
+Has-A relationship 
+==================
+Has-A relationship is also known as composition and aggregation.
+
+There is no specific keyword to implements Has-A relationship but mostly we will use new operator.
+
+The main objective of Has-A relationship is to provide reusability.
+
+ex:
+	class Trainer
+	{
+		// Trainer specific functionality 
+	}
+	class Course 
+	{
+		Trainer t = new Trainer();
+		-
+		-
+	}
+
+Has-A relationship will increase dependency between two components.
+
+ex:
+--
+class Ihub 
+{
+	public String courseName()
+	{
+		return "Full Stack Java";
+	}
+	public double courseFee()
+	{
+		return 30000d; 
+	}
+	public String trainerName()
+	{
+		return "Niyaz Sir";
+	}
+}
+class Usha 
+{
+	public void getCourseDetails()
+	{
+		Ihub i = new Ihub();
+		System.out.println("Course Name :"+i.courseName());
+		System.out.println("Course Fee :"+i.courseFee());
+		System.out.println("Trainer Name :"+i.trainerName());
+	}
+}
+class Student 
+{
+	public static void main(String[] args)
+	{
+		Usha u = new Usha();
+		u.getCourseDetails();
+	}
+}
+
+Composition 
+===========
+Without existing container object there is no chance of having contained object then relationship between container and contained object is called composition which is strongly association.
+
+Diagram: class29.1
+
+Aggregation  
+===========
+Without existing container object there is a chance of having contained object then relationship between container and contained object is called aggregation which is loosely association.
+
+Diagram: class29.2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

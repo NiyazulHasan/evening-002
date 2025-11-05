@@ -1,0 +1,431 @@
+Double Dimensional Array 
+========================
+Double dimensional array is a combination of rows and cols.
+
+Double dimensional array is implemented based on array of arrays approach but not matrix form.
+
+Double dimensional array is used to develop business oriented applications, gaming application, matrix applications and etc.
+
+We can declare and create double dimensional array as follow.
+ex:
+			  rows cols 
+			    |  |
+	int[][] arr=new int[3][3];
+
+	Here we can store 9 elements.
+
+We can initialize double dimensional array as follow.
+ex:
+	int[][] arr = {{1,2,3},{4,5,6},{7,8,9}};
+
+
+Q) Write a java program to display array elements in matrix form?
+
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the rows :");
+		int rows = sc.nextInt();
+		
+		System.out.println("Enter the cols :");
+		int cols = sc.nextInt();
+		
+		int[][] darr = new int[rows][cols];
+		
+		//insert elements 
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				System.out.println("Enter the element :");
+				darr[i][j] = sc.nextInt();
+			}
+		}
+		
+		//for each 
+		for(int[] arr : darr)
+		{
+			for(int i : arr)
+			{
+				System.out.print(i+" ");
+			}
+			//new line 
+			System.out.println();
+		}
+	}
+}
+
+
+Q) Write a java program to display square of a matrix?
+
+input:
+	1 2 3
+	4 5 6
+	7 8 9 
+
+output: 
+	1  4  9 
+	16 25 36
+	49 64 81
+
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[][] matrix ={{1,2,3},{4,5,6},{7,8,9}};
+		
+		//for each loop
+		for(int[] arr : matrix)
+		{
+			for(int i : arr)
+			{
+				System.out.print(i*i+" ");	
+			}
+			//new line 
+			System.out.println();
+		}
+	}
+}
+
+Q) Write a java program to display sum of diagonal elements?
+
+input:
+	1 2 3
+	4 5 6 
+	7 8 9 
+output:
+	15
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[][] matrix ={{1,2,3},{4,5,6},{7,8,9}};
+		
+		int rows = matrix.length;
+		int cols = matrix[0].length;
+		
+		int sum=0;
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				if(i==j)
+				{
+					sum+=matrix[i][j];	
+				}
+			}
+		}
+		System.out.println(sum);
+	}
+}
+
+approach2
+---------
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[][] matrix ={{1,2,3},{4,5,6},{7,8,9}};
+		
+		int sum=0;
+		for(int i=0;i<matrix.length;i++)
+		{
+			for(int j=0;j<matrix[i].length;j++)
+			{
+				if(i==j)
+				{
+					sum+=matrix[i][j];	
+				}
+			}
+		}
+		System.out.println(sum);
+	}
+}
+
+Q) Write a java program perform sum of upper triangle elements?
+
+input:
+	1 2 3
+	4 5 6
+	7 8 9
+output:
+	11
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[][] matrix ={{1,2,3},{4,5,6},{7,8,9}};
+		
+		int sum=0;
+		for(int i=0;i<matrix.length;i++)
+		{
+			for(int j=0;j<matrix[i].length;j++)
+			{
+				if(i<j)
+				{
+					sum+=matrix[i][j];	
+				}
+			}
+		}
+		System.out.println(sum);
+	}
+}
+
+Q) Write a java program perform sum of lower triangle elements?
+
+input:
+	1 2 3
+	4 5 6
+	7 8 9
+output:
+	19
+
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[][] matrix ={{1,2,3},{4,5,6},{7,8,9}};
+		
+		int sum=0;
+		for(int i=0;i<matrix.length;i++)
+		{
+			for(int j=0;j<matrix[i].length;j++)
+			{
+				if(i>j)
+				{
+					sum+=matrix[i][j];	
+				}
+			}
+		}
+		System.out.println(sum);
+	}
+}
+
+Q) Write a java program to transpose a matrix?
+
+input:
+	1 2 3
+	4 5 6
+	7 8 9 
+
+output:
+	1 4 7
+	2 5 8
+	3 6 9
+
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[][] matrix ={{1,2,3},{4,5,6},{7,8,9}};
+		
+		int rows = matrix.length;
+		int cols = matrix[0].length;
+		
+		int[][] transpose=new int[rows][cols];
+		
+		for(int i=0;i<matrix.length;i++)
+		{
+			for(int j=0;j<matrix[i].length;j++)
+			{
+				transpose[j][i]=matrix[i][j];	
+			}
+		}
+		
+		//display elements
+		for(int[] arr : transpose)
+		{
+			for(int i : arr)
+			{
+				System.out.print(i+" ");
+			}
+			//new line 
+			System.out.println();
+		}
+	}
+}
+
+Q) Write a java program to display array elements in spiral form?
+
+input:
+	1 2 3 
+	4 5 6
+	7 8 9
+
+output:
+	1 2 3 6 9 8 7 4 5 
+
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[][] matrix ={{1,2,3},{4,5,6},{7,8,9}};
+		
+		int left=0;
+		int right=matrix.length-1;
+		int top=0;
+		int bottom=matrix.length-1;
+		
+		while(true)
+		{
+			if(left>right)
+			{
+				break;
+			}
+			for(int i=left;i<=right;i++)
+			{
+				System.out.print(matrix[top][i]+" ");
+			}
+			top++;
+			
+			if(top>bottom)
+			{
+				break;
+			}
+			for(int i=top;i<=bottom;i++)
+			{
+				System.out.print(matrix[i][right]+" ");
+			}
+			right--;
+			
+			if(left>right)
+			{
+				break;
+			}
+			for(int i=right;i>=left;i--)
+			{
+				System.out.print(matrix[bottom][i]+" ");
+			}
+			bottom--;
+			
+			if(top>bottom)
+			{
+				break;
+			}
+			for(int i=bottom;i>=top;i--)
+			{
+				System.out.print(matrix[i][left]+" ");
+			}
+			left++;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

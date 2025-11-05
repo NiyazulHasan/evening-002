@@ -1,0 +1,413 @@
+Q) Write a java program to copy the data from one file to another file?
+
+input:
+	source.txt 
+	----------
+	a
+	ab
+	abc
+	abcd 
+
+ex:
+---
+import java.io.*;
+class Test  
+{
+	public static void main(String[] args)  
+	{
+		try(
+				FileInputStream fis = new FileInputStream("source.txt");
+				FileOutputStream fos = new FileOutputStream("destination.txt");
+			)
+		{
+			int byteReads=0;
+			while((byteReads = fis.read())!=-1)
+			{
+				fos.write(byteReads);
+			}  
+			System.out.println("Data Copied");
+		}
+		catch (IOException ioe)
+		{
+			ioe.printStackTrace();
+		}
+	}
+}
+
+Serialization 
+=============
+The process of storing object data into a file is called serialization.
+
+Converting from object state to file state is called serialization.
+
+To perform serialization we required ObjectOutputStream and FileOutputStream class.
+
+We can perform serialization only for serialized object.
+
+To create a serialized object our class must implement Serializable interface.
+
+Serializable is a marker interface which does not have any methods or constants.
+
+By using marker interface we will get some ability by JVM.
+
+Diagram: class38.1
+
+
+import java.io.*;
+class Person implements Serializable 
+{
+	private int age;
+	private String name;
+	
+	Person(int age,String name)
+	{
+		this.age = age;
+		this.name = name;
+	}
+	public String toString()
+	{
+		return age+" "+name;
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Person p = new Person(29,"Alan");
+		try(ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("sreenivas.txt"));)
+		{
+			outputStream.writeObject(p);
+			System.out.println("Data inserted");
+		}
+		catch (IOException ioe)
+		{
+			ioe.printStackTrace();
+		}
+		
+	}
+}
+
+Deserialization 
+================
+The process of taking the data from file and representing an object is called deserialization.
+
+Converting from file state to object state is called deserialization.
+
+To perform deserialization we required ObjectInputStream and FileInputStream class.
+
+We can perform deserialization only for serialized object.
+
+To create serialized object our class must implements Serializable interface.
+
+Serializable is a marker interface which does not have any methods or constants.
+
+By using marker interface we will get some ability by JVM.
+
+Diagram: class38.2
+
+
+import java.io.*;
+class Person implements Serializable 
+{
+	private int age;
+	private String name;
+	
+	Person(int age,String name)
+	{
+		this.age = age;
+		this.name = name;
+	}
+	public String toString()
+	{
+		return age+" "+name;
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		
+		try(ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("sreenivas.txt"));)
+		{
+			Person p = (Person) inputStream.readObject();
+			System.out.println(p);
+		}
+		catch (IOException | ClassNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		
+	}
+}
+
+Types of objects 
+=================
+We have two types of objects in java.
+
+1) Immutable object 
+--------------------
+After object creation if we perform any changes then for every change a new object will be created such type of object is called immutable object.
+ex:
+	String and Wrapper classes 
+
+2) Mutable object 
+-----------------
+After object creation if we perform any changes then all the required changes will be done in a same object such type of object is called mutable object.
+ex:
+	StringBuffer and StringBuilder 
+
+
+
+java.util package
+=================
+
+Q) What is the difference between Arrays and Collections?
+
+Arrays						Collections 
+-------						-------------
+It is a collection of homogeneous data 		It is a collection of homogeneous and 
+elements.					hetrogeneous data elements.
+
+It is fixed in size.				It is growable in nature.
+
+Performance point of view arrays are 		Memory point of view Collections are 	
+recommanded to use.				recommanded to use.
+
+Arrays not implements based on data structure 	Collections are implemented based on 
+concept so we can't expect any ready made 	data structure concept we can expect ready 
+methods.					made methods.
+
+It can hold primitive types and object types.	It can hold only object types.
+
+
+Collection Framework 
+====================
+It defines several utility classes and interfaces to represent group of objects in a single entity.
+ex:
+	Java			C++
+	-----			----
+	Collection 		STL - Standard Template Library
+	Collection Framework	Containers 
+
+Collection 
+===========
+Collection is an interface which is present in java.util package.
+
+It is a root interface for entire Collection Framework.
+
+If we want to represent group of individual objects in a single entity then we need to use Collection.
+
+Collection interface contains some command methods which are available for entire Collection objects.
+ex:
+	cmd> javap   java.util.Collection 	
+
+List 
+=====
+It is a child interface of Collection interface.
+
+If we want to represent group of individual objects in a single entity where duplicate objects are allowed and order is preserved then we need to use List interface.
+
+Diagram: class38.3
+
+
+Arraylist 
+-----------
+The underlying data structure is resizable array or growable array.
+
+Duplicate objects are allowed.
+
+Insertion order is preserved.
+
+Hetrogeneous objects are allowed.
+
+Null insertion is possible.
+
+ex:
+---
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		ArrayList al = new ArrayList();
+		al.add("one");
+		al.add("two");
+		al.add("three");
+		System.out.println(al); //[one,two,three]
+		
+		al.add("one");
+		System.out.println(al); // [one,two,three,one]
+		
+		al.add(10);
+		System.out.println(al); //[one,two,three,one,10]
+		
+		al.add(null);
+		System.out.println(al); //[one,two,three,one,10,null]
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		ArrayList<String> al = new ArrayList<String>();
+		al.add("one");
+		al.add("two");
+		al.add("three");
+		System.out.println(al); //[one,two,three]
+		
+		al.add("one");
+		System.out.println(al); // [one,two,three,one]
+		
+		al.add(null);
+		System.out.println(al); //[one,two,three,one,null]
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		ArrayList<String> al = new ArrayList<String>();
+		al.add("one");
+		al.add("two");
+		al.add("three");
+		
+		for(int i=0;i<al.size();i++)
+		{
+			System.out.println(al.get(i));
+		}
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		List<Integer> list = new ArrayList<>();
+		list.add(10);
+		list.add(20);
+		list.add(30);
+		
+		for(int i : list)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		List<Integer> list = List.of(6,2,9,1,4,5);
+	
+		for(int i : list)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

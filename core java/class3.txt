@@ -1,0 +1,114 @@
+Flavours in Java 
+================
+We have three flavours in java.
+
+					Java
+	|---------------------------------|---------------------------------|
+	JSE/J2SE			JEE/J2EE			JME/J2ME
+(Java Standard Edition)		(Java Enterprise Edition)	(Java Micro Edition)
+
+> Standalone app		> Distributed app 		> Mobile App 
+
+> Desktop app 			> Enterprise app 
+
+> Two tier app 			> ERP app 
+
+				> N-tier app 
+
+> Standalone app
+----------------
+A normal java program which contains main method is called standalone application.
+ex:
+	class Test
+	{
+		public static void main(String[] args)
+		{
+			-
+			- // some code
+			-
+		}
+	}
+
+> Desktop app 
+--------------
+It is a software application which is specially designed to perform particular task.
+ex:
+	Control Panel 
+	Recycle Bin 
+	This PC 
+	and etc.
+
+> Two tier app 
+-------------
+Having more then one tier is called two tier application.
+
+Diagram: class3.1
+Diagram: class3.2
+
+
+
+> Distributed app 
+-----------------
+Diagram: class3.3
+
+In client/Server application, if multiple requests go to main server then main server will distribute those requests to it's parallel servers to reduce the burdun of main server such type of application is called distributed application.
+
+> Enterprise app 
+----------------
+Application which deals with large business complex logic with the help of middleware services is called enterprise application.
+
+Here middleware services means authentication, autherization, malware production, security and etc.
+ex:
+	Facebook
+	Online shipping website 
+	and etc.
+
+
+> ERP app 
+--------
+ERP stands for Enterprise Resource Planning.
+ERP is used to maintain the data in a enterprise.
+Diagram: class3.4
+
+> N-tier app 
+--------------
+Having more then two tiers is called N-tier application.
+
+
+> Mobile app
+----------
+It is a software application or a program specially designed for wireless network devices like phone, cell, tab , cellular and etc rather then laptop's and pc's.
+ex:
+	Gpay 
+	Temple Run 
+	PubG 
+	and etc.
+
+Interview Question 
+==================
+Q) What is Java?
+
+Java is a versatile programming language which is used to develop various types of applications like standalone applications, desktop applications, distributed application,enterprise applications, ERP applications, networking applications,mobile applications and etc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

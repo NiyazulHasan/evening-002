@@ -1,0 +1,247 @@
+Abstraction
+===========
+Hiding internal implementation and highlighting the set of services is called abstraction.
+
+The best example of abstraction is GUI ATM machine where bank people will hide internal implementation and highlights the set of services like banking, withdrawl, mini statement and etc.
+
+Using abstract classes and interfaces we can implements abstraction.
+
+The main advantages of abstraction are 
+
+1) It gives security because it hides internal implementation from outsiders.
+
+2) Enhancement becomes more easy because without effecting end user they can perform 
+   any changes in our internal system.
+
+3) It provides flexibility to the enduser to use the system.
+
+4) It improves maintainability of an application.
+
+
+
+
+Encapsulation
+==============
+The process of encapsulating or wrapping variables and it's associate methods in a single entity is called encapsulation.
+
+The best example of encapsulation is capsule.
+
+Diagram: class28.1
+
+Abstraction is used to hide the data and encapsulation is used to protect the data.
+
+A class is said to be encapsulated class if it supports data hiding and abstraction.
+
+In encapsulation for every variable we need to generate setter and getter methods.
+
+The main advantages of encapsulation are 
+
+1) It gives security .
+2) Enhancement becomes more easy.
+3) It provides flexibility to the enduser.
+4) It improves maintainability of an application.
+
+The main disadvantage of encapsulation is , it will increase the length of our code and slow down the execution process.
+
+ex:
+---
+class Student
+{
+	//current class variables 
+	private int studId;
+	private String studName;
+	private double studFee;
+	
+	//setter methods 
+	public void setStudId(int studId)
+	{
+		this.studId=studId;
+	}
+	public void setStudName(String studName)
+	{
+		this.studName=studName;
+	}
+	public void setStudFee(double studFee)
+	{
+		this.studFee=studFee;
+	}
+	
+	//getter methods 
+	public int getStudId()
+	{
+		return studId;
+	}
+	public String getStudName()
+	{
+		return studName;
+	}
+	public double getStudFee()
+	{
+		return studFee;
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Student s = new Student();
+		s.setStudId(101);
+		s.setStudName("Alan");
+		s.setStudFee(10000d);
+		
+		System.out.println("Student Id :"+s.getStudId());
+		System.out.println("Student Name :"+s.getStudName());
+		System.out.println("Student Fee : "+s.getStudFee());
+	}
+}
+
+
+Is-A relationship 
+================
+Is-A relationship is also known as inheritance.
+
+By using extends keyword we can implements Is-A relationship.
+
+The main objective of Is-A relationship is to provide reusability.
+
+ex:
+---
+class Parent 
+{
+	public void methodOne()
+	{
+		System.out.println("Parent-MethodOne");
+	}
+}
+class Child extends Parent
+{
+	public void methodTwo()
+	{
+		System.out.println("Child-MethodTwo");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Parent p = new Parent();
+		p.methodOne(); // Parent-MethodOne
+		
+		Child c = new Child();
+		c.methodOne(); // Parent-MethodOne
+		c.methodTwo(); // Child-MethodTwo
+		
+		Parent p1 = new Child();
+		p1.methodOne(); 
+		
+		 // Child c1 = new Parent();
+	}
+}
+
+Inheritance 
+===========
+Inheritance is a mechanism in which a class inherits the properties of another class.
+
+In inheritance we will derived a class in the presence of existing class.
+
+The main objective of inheritance is to achieve reusability.
+
+Using extends keyword we can achieve inheritance.
+
+Diagram: class28.2
+
+We have following list of inheritance.
+
+1) Single Level Inheritance 
+
+2) Multi Level Inheritance 
+
+3) Multiple Inheritance 
+
+4) Hierarchical Inheritance 
+
+5) Hybrid Inheritance 
+
+
+1) Single Level Inheritance 
+----------------------------
+If we derived a class in the presence of one base class is called single level inheritance.
+ex:
+	A (parent/super/base class)
+	|
+	|
+	B (child/sub/derived class)
+
+class A 
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class B extends A 
+{
+	public void m2()
+	{
+		System.out.println("M2-Method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		A a = new A();
+		a.m1();
+		
+		B b = new B();
+		b.m1();
+		b.m2();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

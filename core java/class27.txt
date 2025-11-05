@@ -1,0 +1,324 @@
+Q) Write a java program to display array elements in sorting order?
+
+input:
+	3 9 1
+	4 7 2
+	5 8 6
+
+output:
+	1 2 3 
+	4 5 6
+	7 8 9 
+
+
+import java.util.Arrays;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[][] arr={{3,9,1},{4,7,2},{5,8,6}};
+		
+		int rows = arr.length;
+		int cols = arr[0].length;
+		
+		int[] flat = new int[rows*cols];
+		
+		//convert 2-d array to 1-d array
+		int index=0;
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				flat[index++]=arr[i][j];
+			}
+		}
+		
+		//sorting 
+		Arrays.sort(flat);
+		
+		//convert 1-d array to 2-d array
+		int idx=0;
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				arr[i][j]=flat[idx++];
+				System.out.print(arr[i][j]+" ");
+			}
+			//new line
+			System.out.println();
+		}
+
+	}
+}
+
+Multi-Dimensional Array 
+========================
+If array contains more then two dimensions then it is called multi-dimensional array.
+
+We can declare and create multi-dimensional array as follow.
+ex:
+	int[][][] arr = new int[2][3][3];
+
+	Here we can store 18 elements 
+
+We can initialize multi-dimensional array as follow.
+
+ex:
+	int[][][] arr = {
+				{
+					{1,2,3},
+					{4,5,6},
+					{7,8,9}
+				},
+				{
+					{1,2,3},
+					{4,5,6},
+					{7,8,9}
+
+				}
+			};
+
+
+ex:
+---
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[][][] arr = {
+							{
+								{1,2,3},
+								{4,5,6},
+								{7,8,9}
+							},
+							{
+								{1,2,3},
+								{4,5,6},
+								{7,8,9}
+							}
+			};	
+	
+		for(int i=0;i<arr.length;i++)
+		{
+			for(int j=0;j<arr[i].length;j++)
+			{
+				for(int k=0;k<arr[i][j].length;k++)
+				{
+					System.out.print(arr[i][j][k]+" ");
+				}
+				//new line
+				System.out.println();
+			}
+			//new line
+			System.out.println();
+		}
+			
+
+	}
+}
+
+OOPS 
+=====
+OOPS stands for Object Object Programming System/Structure.
+
+OOPS introduced to deal with real world entities using programming language.
+
+A language is said to be object oriented if it support following features.
+
+ex:
+	class
+	object 
+	abstraction 
+	encapsulation 
+	inheritance and 
+	polymorphism 
+
+
+class
+=====
+A class is a blue print of an object.
+ex:
+	Design 
+	Template
+
+A class is a collection of objects. 
+
+A class is a logical entity.
+
+A class will accept following modifiers.
+ex:
+	default 
+	public 
+	final 
+	abstract 
+
+We can declare a class as follow.
+
+syntax:
+-------
+	class class_name <extends> parent_name 
+		         <implements> interface_name
+	{
+		-
+		-
+		-
+	}
+
+
+Q) What is the difference between final class and abstract class?
+
+final class				abstract class
+----------------			--------------
+To declare a final class we will use 	To declare abstract class we will use 
+final keyword.				abstract keyword.
+ex:					ex:
+	final class A 				abstract class a 
+	{					{
+	}					}
+
+Child creation is not possible.		Creation creation is possible.
+
+Object creation is possible.		Object creation is not possible.
+
+
+
+object
+======
+It is a outcome of a blue print.
+
+It is a collection of properties and behaviours.
+
+ex:
+		Dog 
+		|
+	|------------------|
+properties		behaviours
+
+> Name 			> Sleeping
+> Color 		> Barking 
+> Age			> Eating 
+> Weight 		and etc.
+> Height 
+and etc.
+
+It is a physical entity.
+
+It is possible to create more then one object in a single class.
+
+We can create object as follow.
+ex:			
+			constructor 
+			|
+	Test t = new Test();
+	|    |
+classname reference-variable 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Test t1=new Test();
+		Test t2=new Test();
+		Test t3=new Test();
+		
+		System.out.println(t1.hashCode());
+		System.out.println(t2.hashCode());
+		System.out.println(t3.hashCode());
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Test t1=new Test();
+		Test t2=new Test();
+		Test t3=new Test();
+		
+		System.out.println(t1.hashCode());
+		System.out.println(t2.hashCode());
+		System.out.println(t3.hashCode());
+		
+		System.out.println(t1); // Test@Hexavalue
+		System.out.println(t2.toString());
+		System.out.println(t3.toString());
+	}
+}
+
+
+Data Hiding 
+===========
+The process of hiding object data from unauthorized access is called data hiding.
+
+The main objective of data hiding is to provide security.
+
+Using private modifier we can implements data hiding concept.
+
+ex:
+---
+class Account 
+{
+	private double balance=10000d;
+}
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Account account = new Account();
+		System.out.println(account.balance);
+	}
+}
+o/p:
+	 balance has private access in Account
+
+
+ex:
+---
+Whenever we are print object reference directly or indirectly toString() method will execute.
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Test t = new Test();
+		System.out.println(t); // Test Object
+	}
+	
+	@Override
+	public String toString()
+	{
+		 return "Test Object";
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

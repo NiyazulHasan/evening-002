@@ -1,0 +1,113 @@
+Institute Name 	: QualityThought / Ihub Talent Management 
+Websites	: www.qualitythought.in / www.ihubtalent.com 
+Location	: Ameerpet, Hyderabad.
+Course Name	: Full Stack Java Development 
+Duration	: 5 Months 
+Mode		: Online/Offline 
+Trainer Name	: Niyaz Sir 
+Experience	: 15+ years of experience in development and training
+Batch Timing	: 06:00 pm to 07:00 pm
+Notes		: Whatsapp Group 
+Recordings	: Free 
+Placements 	: Placement Team
+Lab facility	: Lab faculties  
+Additional 	: Aptitute classes, Soft skills classes, Practical skills.
+Extra Training  : DSA, AI, AWS integration 
+Project		: Employee Management System (ReactJS + Spring Boot + MySQL)
+
+
+			Full Stack Java Development
+					|
+		|----------------------------------------------|
+	Frontend Technologies				Backend Technologies
+	
+	> HTML5						> Core Java
+	> CSS3						> Advanced Java
+	> JavaScript 					> Oracle Database 
+	> Bootstrap5					> Frameworks 
+	> ReactJS 						> Spring Boot
+								> Microservices
+								> Spring AI
+
+
+Q) What is AI ?
+
+AI stands for Artificial Intelligence. 
+
+AI is a ability of a computer or a machine to mimic or simulate human behaviours.
+
+ex:
+	Thinking, Reasoning, Perception, language understanding and etc.
+
+We have two types of AI.
+
+1) Weak AI 
+-----------
+	It is used to perform narrow(single) areas.
+	ex:
+		ChatGPT
+		Siri/Alexa
+		Google Assistant 
+		Google Maps 
+		and etc.
+
+2) Strong AI 
+-----------
+	It is used perform multiple task.
+	It is futurestic.
+	ex:
+		Not yet achieved.	
+
+
+Project 
+=======
+Technically, project is a collection of modules.
+
+We have following list of modules.
+ex: 
+		customer module 
+		Admin module 
+		payment module 
+		shipping module 
+		Report generation module 
+		login module 
+		and etc.
+
+Every project contains two domains.
+
+1) Technical domain 
+-----------------
+	Technical domain describes using which technology we developed our project.
+	ex:	
+		Java 
+
+2) Functional domain 
+-------------------
+	Functional domain describes state of a project.
+	ex:
+		Healthcare domain 
+		Insaurance domain 
+		Banking domain 
+		ERP domain 
+		and etc.
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+

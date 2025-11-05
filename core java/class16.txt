@@ -1,0 +1,545 @@
+How to convert decimal number to binary number
+-----------------------------------------
+	Decimal No : 10
+	Binary No  : 1010
+
+	2|10
+	 ---- 0
+	2|5
+	 ---- 1 
+	2|2
+	 ---- 0 	^
+	  1		|
+	-----------------
+	1010
+
+
+How to convert binary number to decimal number
+-------------------------------------------
+
+	binary number : 1010
+	decimal number : 10 
+
+	1010  <----
+
+	0*1 + 1*2 +  0*4 + 1*8
+	0 + 2 + 0 + 8 = 10
+
+
+4) Bitwise Operators 
+====================
+
+Bitwise AND operator (&)
+--------------------------
+Bitwise AND operator deals with binary numbers.
+
+Truth table 
+-----------
+T	T	= T
+T	F	= F 
+F	T	= F
+F	F	= F 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int a=10,b=15;
+		int c = a & b;
+		System.out.println(c); // 10
+	}
+}
+/*
+	10 - 1010
+	15 - 1111
+	----------
+	&  - 1010 <---
+	
+	0*1 + 1*2 + 0*4 + 1*8
+	
+	0 + 2 + 0 + 8 = 10
+*/
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int a=2,b=3;
+		int c = a & b;
+		System.out.println(c); // 2
+	}
+}
+/*
+	2 - 0010
+	3 - 0011
+	--------
+	& - 0010 <---
+	
+	0*1 + 1*2 + 0*4 + 0*8
+	
+	0 + 2 + 0 + 0 = 2 
+*/
+
+Q) Write a java program to check given number is even or odd?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n = sc.nextInt();//10 
+		
+		String result = ((n&1)==0)?"It is even number":"It is odd number";
+		System.out.println(result);
+	}
+}
+
+
+Bitwise OR operator (|)
+------------------------
+Bitwise OR operator deals with binary numbers.
+
+Truth table
+-----------
+T	T	= T
+T	F	= T
+F	T	= T
+F	F	= F 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int a =10,b=5;
+		int c = a | b;
+		System.out.println(c); 
+	}
+}
+/*
+	10 - 1010
+	5  - 0101
+	----------
+	|  - 1111  <----
+	
+	1*1 + 1*2 + 1*4 + 1*8
+	1 + 2 + 4 + 8 = 15
+*/
+
+
+Bitwise XOR operator (^)
+------------------------
+Bitwise XOR operator deals with binary numbers.
+
+Truth table 
+-----------
+T	T	= F
+T	F	= T
+F	T	= T 
+F	F	= F 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int a =10,b=15;
+		int c = a ^ b;
+		System.out.println(c); //5
+	}
+}
+/*
+	10 - 1010
+	15 - 1111
+	----------
+	^  - 0101 <----
+	
+	1*1 + 0*2 + 1*4 + 0*8
+	
+	1 + 0 + 4 + 0 = 5
+*/
+
+Bitwise NOT operator (~)
+------------------------
+syntax:
+-------
+	-(n+1)
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i = ~10;
+		
+		System.out.println(i); // -11
+	}
+}
+
+ex:
+--
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i = ~23;
+		
+		System.out.println(i); // -24
+	}
+}
+	
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i = ~(-23);
+		
+		System.out.println(i); // 22
+	}
+}
+
+5) Arithmetic operator 
+----------------------
+% - modules 
+/ - division 
+* - multiplication 
++ - addition 
+- - subtraction 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i = 5+6%2+7%10+8/3+10/20+5*2+16-20;
+		
+		System.out.println(i); // 20
+	}
+}
+/*	
+	5 + 6%2 + 7%10 + 8/3 + 10/20 + 5*2 + 16 - 20
+	
+	5 + 0 + 7 + 2 + 0 + 10 + 16 - 20
+	
+	40 - 20 = 20 
+*/
+
+
+6) Relational operators
+-----------------------
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println(10 > 20); // false 
+		
+		System.out.println(10 >= 20 ); // false 
+		
+		System.out.println(10 < 20); // true 
+		
+		System.out.println(10 <= 20); // true 
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println(10 == 20); // false 
+		
+		System.out.println(10 == 10 ); // true
+		
+		System.out.println(10 != 20); // true 
+		
+		System.out.println(10 != 10); // false
+	}
+}
+
+7) Shift operators 
+------------------
+
+Right Shift operator (>>)
+-------------------------
+10 >> 1 = 10/2 
+
+10 >> 2 = 10/4 (2*2)
+
+10 >> 3 = 10/8 (2*2*2)
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i = 100 >> 3;
+		
+		System.out.println(i); // 100/8 = 12 
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i = 20 >> 4;
+		
+		System.out.println(i); // 20/16 = 1 
+	}
+}
+
+Right Shift operator (<<)
+-------------------------
+10 << 1 = 10*2 
+
+10 << 2 = 10*4 (2*2)
+
+10 << 3 = 10*8 (2*2*2)
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i = 10 << 3;
+		
+		System.out.println(i); // 10 * 8 = 80
+	}
+}
+
+ex:
+--
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i = 100 << 6;
+		
+		System.out.println(i); // 100 * 64 = 6400
+	}
+}
+
+8)Unary operators 
+------------------
+
+Increment/Decrement operators (++/--)
+---------------------------------------
+We have two types of increment operators.
+
+1) Post-increment 
+	ex:
+		i++
+
+2) Pre-increment  
+	ex
+		++i
+
+We have two types of decrement operators.
+
+1) Post-decrement
+	ex:
+		i--
+
+2) Pre-decrement
+	ex
+		--i
+
+POST Increment/Decrement 
+-------------------------
+Rule1: First Take 
+Rule2: Then Change 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+		
+		int j = i++;
+		
+		System.out.println(i+" "+j);// 11  10
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+		
+		int j = i--;
+		
+		System.out.println(i+" "+j);// 9 10
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+		
+		int j = i++ + i++; // 10 + 11 
+		
+		System.out.println(i+" "+j);// 12   21
+	}
+}
+
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+		
+		int j = i-- + i--; // 10 + 9 
+		
+		System.out.println(i+" "+j);// 8  19
+	}
+}
+
+PRE Increment/Decrement 
+-------------------------
+Rule1: First Change
+Rule2: Then Take
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+		
+		int j= ++i;
+		
+		System.out.println(i+" "+j);//11  11
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+		
+		int j= --i;
+		
+		System.out.println(i+" "+j);//9 9
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+		
+		int j= ++i + ++i;//11+12
+		
+		System.out.println(i+" "+j);//12  23
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i =100;
+		
+		100++;
+		
+		System.out.println(i);// C.T.E 
+	}
+}
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+		
+		System.out.println(++(i++));// C.T.E  
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		byte b = 127;
+		
+		b++;
+		
+		System.out.println(b);// -128
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

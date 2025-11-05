@@ -1,0 +1,235 @@
+Marker interface
+===============
+Interface which does not contain methods and constants is called marker interface.
+
+In general, empty interface is called marker interface.
+
+We have following list of marker interfaces.
+ex:
+	Serializable 
+	Cloneable 
+	Remote 
+	and etc.
+
+Using maker interface we will get some ability to do by JVM.
+
+Abstract class
+==============
+It is a collection of zero or more abstract methods and concrete methods.
+
+A "abstract" keyword is applicable for methods and classes but not for variables.
+
+It is not possible to create object for abstract classes.
+
+To write the implementation of abstract methods we will use sub classes.
+
+By default every abstract method is a public and abstract.
+
+It contains only instance variables.
+
+If we know partial implementation then we need to use abstract class.
+
+ex:
+---
+abstract class Plan 
+{
+	//instance variable 
+	protected double rate;
+	
+	//abstract method 
+	public abstract void getRate();
+	
+	//concrete method 
+	public void calculateBillAmt(int units)
+	{
+		System.out.println("Total Units :"+units);
+		System.out.println("Total Bill :"+ (rate*units));
+	}
+}
+class DomesticPlan extends Plan 
+{
+	public void getRate()
+	{
+		rate = 2.5d;
+	}
+}
+class CommercialPlan extends Plan 
+{
+	public void getRate()
+	{
+		rate = 5.0d;
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		DomesticPlan dp = new DomesticPlan();
+		dp.getRate();
+		dp.calculateBillAmt(250);
+		
+		CommercialPlan cp = new CommercialPlan();
+		cp.getRate();
+		cp.calculateBillAmt(250);
+	}
+}
+
+Abstraction Example
+===================
+abstract class Animal
+{
+	public abstract void sound();
+}
+class Dog extends Animal
+{
+	@Override
+	public void sound()
+	{
+		System.out.println("Bow Bow");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Dog d = new Dog();
+		d.sound();
+	}
+}
+
+Packages 
+=========
+A package is a collection of classes and interfaces.
+
+A package is also known as folder or a directory.
+
+In java, we have two types of packages.
+
+1) Predefined packages 
+
+2) Userdefined packages 
+
+1) Predefined packages 
+------------------------
+Built-In packages are called predefined packages.
+ex:
+	java.lang
+	java.io
+	java.util
+	java.util.stream
+	java.text
+	java.time 
+	java.sql
+	and etc.
+
+
+2) Userdefined packages
+------------------------
+Packages which are created by the user based on the application requirement are called userdefined packages.
+
+syntax:
+------
+	package   <package_name>;
+
+It is recommanded to declare package name in reverse order of url.
+
+ex:
+	package  com.google.www;
+		
+ex:
+---
+package com.ihub.www;
+import java.util.Calendar;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Calendar c = Calendar.getInstance();
+		int h = c.get(Calendar.HOUR_OF_DAY);
+		
+		if(h<12)
+			System.out.println("good Morning");
+		else if(h<16)
+			System.out.println("Good Afternoon");
+		else if(h<20)
+			System.out.println("Good Evening");
+		else
+			System.out.println("Good Night");
+	}
+}
+
+We can compile above program by using below command.
+ex:
+		current_directory 
+		      |
+	javac   -d    .    Test.java
+		|
+	destination folder 
+
+
+We can run above program by using below command.
+ex:
+	java    com.ihub.www.Test 
+			|      |
+		package_name  classname 
+
+
+Assignment
+==========
+Q) Write a java program to display below loop pattern?
+
+1
+1 # 2
+1 # 2 # 3
+1 # 2 # 3 # 4 
+
+
+
+class Test 
+{
+	public static void main(String[] args)
+	{
+		for(int i=1;i<=4;i++)
+		{
+			for(int j=1;j<=i;j++)
+			{
+				if(j==1)
+					System.out.print(j);
+				else
+					System.out.print(" # "+j);
+			}
+			//new line
+			System.out.println();
+		}
+	}
+}
+
+Assignment 
+===============
+Q) Write a java program to find out most repeating element from given array?
+
+input:
+	5 7 2 2 9 9 2 1 3 5 2 9 2 
+
+output:
+	2 is repeating for 5 times 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

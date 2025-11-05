@@ -1,0 +1,261 @@
+Inter-Thread Communication
+==========================
+Inter-Thread communication is possible by using wait(), notify() and notifyAll().
+
+A thread which is waiting for updation has to call wait() method.
+
+A thread which is giving the notification has to notify() or notifyAll().
+
+A wait(), notify() and notifyAll() method present in Object class.
+
+To call wait(), notify() and notifyAll() method we required synchronized area.
+
+If we call wait() method then our thread will release the lock immediately and goes to waiting state.
+
+If we call notify() and notifyAll() method then our thread will release the lock but not immediately.
+
+Except wait(), notify() and notifyAll() method there is no way to release the lock.
+
+ex:
+---
+class MyThread extends Thread 
+{
+	int total=0;
+	public void run()
+	{
+		synchronized(this)
+		{
+			System.out.println("Child started calculation");
+			for(int i=1;i<=10;i++)
+			{
+				total+=i;
+			}
+			System.out.println("Child giving notification");
+			this.notify();
+		}
+	}
+}
+class Test  
+{
+	public static void main(String[] args)throws InterruptedException 
+	{
+		MyThread t = new MyThread();
+		t.start();
+		synchronized(t)
+		{
+			System.out.println("Main Method waiting for notification");
+			t.wait();
+			System.out.println("Main Method got notification");
+			System.out.println(t.total); // 55
+		}
+	}
+}
+
+DeadLock In Java 
+================
+DeadLock will occur in a situation where one thread is waiting for object lock which is acquired by another thread and that thread is waiting for object lock which is acquired by first thread. Here both the threads are ready to release the lock but no body will release such situation is called deadlock in java.
+
+ex:
+---
+
+class Test  
+{
+	public static void main(String[] args)
+	{
+		final String res1="Hi";
+		final String res2="Bye";
+		
+		//Anonymous inner class
+		Thread t1 = new Thread()
+		{
+			public void run()
+			{
+				synchronized(res1)
+				{
+					System.out.println("Thread1: Locking Resource1");
+					synchronized(res2)
+					{
+						System.out.println("Thread1: Locking Resource2");
+					}
+				}
+			}
+		};
+		
+		//Anonymous inner class
+		Thread t2 = new Thread()
+		{
+			public void run()
+			{
+				synchronized(res2)
+				{
+					System.out.println("Thread2: Locking Resource2");
+					synchronized(res1)
+					{
+						System.out.println("Thread2: Locking Resource1");
+					}
+				}
+			}
+		};
+		t1.start();
+		t2.start();
+	}
+}
+
+Drawbacks of multithreading
+========================
+1) Thread Starvation 
+
+2) DeadLock 
+
+3) Debugging 
+
+Interview Question
+===================
+Q) Write a java program to find out given string is balanced or not?
+
+input:
+	{[()]}
+
+output:
+	It is a balanced string 
+
+
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args)
+	{
+		String str="{[()]}";
+		if(isBalanced(str.toCharArray()))
+			System.out.println("It is balanced string");
+		else
+			System.out.println("It is not a balanced string");
+	}
+	public static boolean isBalanced(char[] arr)
+	{
+		Stack<Character> s = new Stack<Character>();
+		
+		for(char ch : arr)
+		{
+			if(ch=='{' || ch=='[' || ch=='(')
+				s.push(ch);
+			else if(ch==')' && !s.isEmpty() && s.peek()=='(')
+				s.pop();
+			else if(ch==']' && !s.isEmpty() && s.peek()=='[')
+				s.pop();
+			else if(ch=='}' && !s.isEmpty() && s.peek()=='{')
+				s.pop();
+			else
+				return false;
+		}
+		return s.isEmpty();
+	}
+}
+
+Q) Write a java program to find out number of occurance of a string?
+
+input:
+	this is is java class class 
+
+output:
+	this=1 is=2 java=1 class=2 
+	
+
+ex:
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args)
+	{
+		String str="this is is java class class";
+		String[] sarr = str.split(" ");
+		Map<String,Integer> map = new LinkedHashMap<String,Integer>();
+		
+		for(String s : sarr)
+		{
+			if(map.containsKey(s))
+			{
+				map.put(s,map.get(s)+1);
+			}
+			else
+			{
+				map.put(s,1);
+			}
+		}
+		
+		for(Map.Entry<String,Integer> entry : map.entrySet())
+		{
+			System.out.print(entry.getKey()+"="+entry.getValue()+" ");
+		}
+		
+	}
+}
+
+
+Q) Write a java program to find out maximum number of integer value in a given string?
+
+input:	
+	1kg of apple is 100 rupees and 2kg of mangoes are 200 rupees
+
+output:
+	200
+
+
+class Test  
+{
+	public static void main(String[] args)
+	{
+		String str="1kg of apple is 100 rupees and 2kg of mangoes are 200 rupees";
+		String[] sarr = str.split("\\D+"); 
+		int max = Integer.MIN_VALUE;
+		
+		for(String s : sarr)
+		{
+			int n = Integer.parseInt(s);
+			if(n>max)
+			{
+				max=n;
+			}
+		}
+		System.out.println(max);
+	}
+}
+
+Assignment
+==========
+Q) Write a java program to reverse the array using single loop?
+
+input:
+	1 6 2 9 5 4 3
+output:
+	3 4 5 9 2 6 1 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

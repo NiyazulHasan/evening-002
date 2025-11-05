@@ -1,0 +1,521 @@
+LinkedList 
+===========
+The underlying data structure is doubly linkedlist.
+
+Duplicate objects are allowed.
+
+Insertion order is preserved.
+
+Hetrogeneous objects are allowed.
+
+Null insertion is possible.
+
+ArrayList is best for storing and retrieving the data.
+
+LinkedList is best for manipulating the data.
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		LinkedList ll = new LinkedList();
+		ll.add("one");
+		ll.add("two");
+		ll.add("three");
+		System.out.println(ll);//[one,two,three]
+		
+		ll.add("one");
+		System.out.println(ll); //[one,two,three,one]
+		
+		ll.add(10);
+		System.out.println(ll); //[one,two,three,one,10]
+		
+		ll.add(null);
+		System.out.println(ll); // [one,two,three,one,10,null]
+	
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		LinkedList<String> ll = new LinkedList<String>();
+		ll.add("one");
+		ll.add("two");
+		ll.add("three");
+		System.out.println(ll);//[one,two,three]
+		
+		ll.add("one");
+		System.out.println(ll); //[one,two,three,one]
+		
+		ll.add(null);
+		System.out.println(ll); // [one,two,three,one,null]
+	
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		LinkedList<String> ll = new LinkedList<String>();
+		ll.add("one");
+		ll.add("two");
+		ll.add("three");
+		System.out.println(ll);//[one,two,three]
+		
+		ll.addFirst("gogo");
+		ll.addLast("jojo");
+		System.out.println(ll); //[gogo,one,two,three,jojo]
+		
+		System.out.println(ll.getFirst()); //gogo
+		System.out.println(ll.getLast()); // jojo
+		
+		ll.removeFirst();
+		ll.removeLast();
+		System.out.println(ll); //[one,two,three]
+	
+	}
+}
+
+Vector 
+========
+The underlying data structure is resizable array or growable array.
+
+Duplicate objects are allowed.
+
+Insertion order is preserved.
+
+Hetrogeneous objects are allowed.
+
+Null insertion is possible.
+
+All methods present in Vector are synchronized. Hence it is thread safe.
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Vector v = new Vector();
+		System.out.println(v.capacity());// 10 
+		
+		for(int i=1;i<=10;i++)
+		{
+			v.addElement(i);
+		}
+		System.out.println(v); //[1,2,3,4,5,6,7,8,9,10]
+		
+		System.out.println(v.firstElement()); // 1
+		System.out.println(v.lastElement()); // 10
+		
+		v.removeElementAt(5);
+		System.out.println(v);//[1,2,3,4,5,7,8,9,10]
+		
+		v.removeAllElements();
+		System.out.println(v); // []
+		
+	}
+}
+
+Stack 
+=======
+It is a child class of Vector class.
+
+If we depend upon Last In First Out (LIFO) order then we need to use stack.
+
+constructor
+---------
+	Stack s = new Stack();
+
+Methods
+-------
+
+1) push(E)
+-----------
+	It is used to push elements into stack.
+
+2) pop()
+---------
+	It is used to pop elements from stack.
+
+3) peek()
+----------
+	It is used to return toppest element from stack.
+
+4) isEmpty()
+-----------
+	It is used to check stack is empty or not.
+
+5) search(E) 
+----------
+	It returns offset value if element is found otherwise it will return -1.
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Stack<String> s = new Stack<String>();
+		s.push("A");
+		s.push("B");
+		s.push("C");
+		System.out.println(s); //[A,B,C]
+		
+		s.pop();
+		System.out.println(s); //[A,B]
+		
+		System.out.println(s.peek()); // B 
+		
+		System.out.println(s.isEmpty()); // false
+		
+		System.out.println(s.search("Z")); // -1
+		
+		System.out.println(s.search("A")); // 2 
+	}
+}
+
+
+Set 
+======
+It is a child interface of Collection interface.
+
+If we want to represent group of individual objects in a single entity where duplicate objects are not allowed and order is not preserved then we need to use Set interface.
+
+Diagram: class39.1
+
+
+HashSet 
+=======
+The underlying data structure is Hashtable.
+
+Duplicate objects are not allowed.
+
+Insertion order is not preserved because it takes hashcode of an object.
+
+Hetrogeneous objects are allowed.
+
+Null insertion is possible.
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		HashSet hs = new HashSet();
+		hs.add("one");
+		hs.add("five");
+		hs.add("nine");
+		hs.add("two");
+		System.out.println(hs); // [nine, one, five, two]
+		
+		hs.add("one");
+		System.out.println(hs); // [nine, one, five, two]
+		
+		hs.add(10);
+		System.out.println(hs); // [nine, one, 10, five, two]
+		
+		hs.add(null);
+		System.out.println(hs); // [null, nine, one, 10, five, two]
+	}
+}
+
+LinkedHashSet 
+==============
+It is a child class of HashSet class.
+
+LinkedHashSet is exactly same as HashSet class with following differences.
+
+HashSet						LinkedHashSet 
+----------					---------------
+The underlying data structure is Hashtable.	The underlying data structure is Hashtable 						and LinkedList.
+
+Insertion order is not preserved.		Insertion order is preserved.
+
+Introduced in 1.2 version.			Introduced in 1.4 version.
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		LinkedHashSet lhs = new LinkedHashSet();
+		lhs.add("one");
+		lhs.add("five");
+		lhs.add("nine");
+		lhs.add("two");
+		System.out.println(lhs); // [one,five,nine,two]
+		
+		lhs.add("one");
+		System.out.println(lhs); // [one,five,nine,two]
+		
+		lhs.add(10);
+		System.out.println(lhs); // [one,five,nine,two,10]
+		
+		lhs.add(null);
+		System.out.println(lhs); // [one,five,nine,two,10,null]
+	}
+}
+
+TreeSet 
+=======
+The underlying data structure is Balanced Tree.
+
+Duplicate objects are not allowed.
+
+Insertion order is not preserved because it takes sorting order of an object.
+
+Hetrogeneous objects are not allowed.If we insert then we will get ClassCastException.
+
+Null insertion is not possible.If we insert then we will get NullPointerException.
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		TreeSet ts = new TreeSet();
+		ts.add(10);
+		ts.add(1);
+		ts.add(5);
+		ts.add(3);
+		System.out.println(ts); //[1,3,5,10]
+		
+		ts.add(1);
+		System.out.println(ts); //[1,3,5,10]
+		
+		//ts.add("Hi");
+		//System.out.println(ts); // R.E ClassCastException
+		
+		//ts.add(null);
+		//System.out.println(ts); // R.E NullPointerException
+	}
+}
+
+Interview Questions 
+==================
+Q) Write a java program to sort the list?
+
+input:
+	7 2 9 1 5 4 3
+output:
+	1 2 3 4 5 7 9 
+
+
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		List<Integer> list = Arrays.asList(7,2,9,1,5,4,3);
+		
+		Collections.sort(list);
+		
+		for(int i : list)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+
+Q) Write a java program to display unique/distinct elements from array?
+
+input:
+	1 2 2 3 3 3 4 4 4 4
+output:
+	1 2 3 4 
+
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr = {1,2,2,3,3,3,4,4,4,4};
+		
+		Set<Integer> set = new LinkedHashSet<>();
+		
+		for(int i : arr)
+		{
+			set.add(i);
+		}
+		
+		set.forEach(ele -> System.out.print(ele+" "));
+	}
+}
+
+
+Q) Write a java program to reverse the list?
+
+input:
+	7 2 9 1 5 4 3
+output:
+	3 4 5 1 9 2 7 
+
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		List<Integer> list = Arrays.asList(7,2,9,1,5,4,3);
+		Collections.reverse(list);
+		list.forEach(ele -> System.out.print(ele+" "));
+	}
+}
+ 
+Assigment 
+==========
+Q) Write a java program to display duplicate and unique elements using Collections?
+
+input:
+	1 5 2 5 9 9 1 6 7 3 
+
+output:
+	Duplicates : 1 5 9 
+	Uniques : 2 6 7 3 
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

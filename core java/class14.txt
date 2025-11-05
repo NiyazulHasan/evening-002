@@ -1,0 +1,422 @@
+2) Explicit typecasting 
+=======================
+If we want to store bigger value into a smaller variable then we need to use explicit typecasting.
+
+A programmer is resposible to perform explicit typecasting.
+
+There is a possibility to loss the information.
+
+It is also known as Narrowing or Downcasting.
+
+We can perform explicit typecasting as follow.
+
+ex:
+	byte	<--	short
+				<--		
+					int <--	long  <-- float <-- double
+				<--
+			char
+
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		double d = 10.5d;
+		
+		int i = (int)d;
+		
+		System.out.println(i); // 10
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i = 65;
+		
+		char ch = (char)i;
+		
+		System.out.println(ch); // A
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i = 130;
+		
+		byte b = (byte)i;
+		
+		System.out.println(b); // -126
+	}
+}
+
+Interview Question 
+==================
+
+Q) Write a java program to find out age of a person based on given date?
+
+import java.time.LocalDate;
+import java.time.Period;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		LocalDate date1 = LocalDate.of(2005,10,26);
+		
+		LocalDate date2 = LocalDate.now();
+		
+		Period p = Period.between(date1,date2);
+		
+		int age =p.getYears();
+		
+		System.out.println("Person Age is ="+age);
+		
+	}
+}
+
+Types of blocks 
+===============
+A block is a set of statements which is enclosed in a curly braces i.e {}.
+ex:
+	// block 
+	{
+		-
+		- // set of statements 
+		-
+	}
+In java, we have three types of blocks.
+
+1) Instance block 
+
+2) Static block 
+
+3) Local block 
+
+1) Instance block
+--------------------
+Instance block is used to initialize the instance variables.
+
+Instance block must and should declare immediately after the class.
+
+Instance block will execute when we create an object.
+
+We can declare instance block as follow.
+
+syntax:
+-------
+	// instance block 
+	{
+		-
+		- // set of statements 
+		-
+	}
+
+ex:
+---
+
+class Test 
+{
+	//instance block 
+	{
+		System.out.println("instance-block");
+	}
+	
+	public static void main(String[] args)
+	{
+		System.out.println("main-method");
+	}
+}
+o/p:
+	main-method 
+
+
+ex:
+---
+
+class Test 
+{
+	//instance block 
+	{
+		System.out.println("instance-block");
+	}
+	
+	public static void main(String[] args)
+	{
+		System.out.println("main-method");
+		Test t = new Test();
+	}
+}
+o/p:
+	main-method
+	instance-block 
+
+ex:
+---
+
+class Test 
+{
+	//instance block 
+	{
+		System.out.println("instance-block");
+	}
+	
+	public static void main(String[] args)
+	{
+		Test t1=new Test();
+		System.out.println("main-method");
+		Test t2 = new Test();
+	}
+}
+
+
+o/p:
+	instance-block
+	main-method
+	instance-block
+
+ex:
+---
+class Test 
+{
+	//instance variable 
+	int i;
+	
+	//instance block 
+	{
+		i =100;
+	}
+	
+	
+	public static void main(String[] args)
+	{
+		Test t = new Test();
+		System.out.println(t.i); // 100
+	}
+}
+
+
+2) Static block
+----------------
+Static block is used to initialize the static variables.
+
+Static block must and should declare immediately after the class using static keyword.
+
+Static block will execute at the time of classloading. 
+
+We can declare static block as follow.
+
+syntax:
+------
+	//static block 
+	static 
+	{
+		-
+		-  // set of statements 
+		-
+	}
+
+ex:
+---
+class Test 
+{
+	//static block 
+	static
+	{
+		System.out.println("static-block");
+	}
+	
+	public static void main(String[] args)
+	{
+		System.out.println("main-method");
+	}
+}
+
+o/p:
+	static-block
+	main-method
+
+ex:
+---
+
+class Test 
+{
+	//instance block 
+	{
+		System.out.println("instance-block");
+	}
+	//static block 
+	static
+	{
+		System.out.println("static-block");
+	}
+	
+	public static void main(String[] args)
+	{
+		Test t = new Test();
+		System.out.println("main-method");
+	}
+}
+o/p:
+	static-block
+	instance-block
+	main-method
+
+ex:
+---
+class Test 
+{
+	//static variable 
+	static int i;
+	
+	//static block 
+	static
+	{
+		i = 200;
+	}
+	
+	public static void main(String[] args)
+	{
+		System.out.println(i); // 200
+	}
+}
+
+3) Local block 
+---------------
+Local block is used to initialize the local variables.
+
+Local block must and should declare inside methods.
+
+Local block will execute just like a normal method.
+
+We can declare local block as follow.
+
+syntax:
+-----
+	//local block 
+	{
+		-
+		- // set of statements 
+		-
+	}
+
+ex:
+---
+
+class Test 
+{
+	public static void main(String[] args)
+	{
+		System.out.println("stmt1");
+		
+		//local block 
+		{
+			System.out.println("stmt2");
+		}
+		
+		System.out.println("stmt3");
+	}
+}
+
+ex:
+---
+
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//local variables 
+		int i;
+		
+		//local block
+		{
+			i = 300;
+		}
+		
+		System.out.println(i); // 300
+	}
+}
+
+Interview Question 
+==================
+Q) Can we execute java program without main method ?
+
+Yes, Till 1.6 version it is possible to execute java program without main method using static block. But from 1.7 version onwards it is not possible to execute java program without main method.
+
+ex:
+class Test 
+{
+	static
+	{
+		System.out.println("Hello World");
+		System.exit(0);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,95 @@
+History of Java
+===============
+In 1990, Sun Micro System took one project to develop a software called consumer electronic device which can be controlled by a remote like setup box. That time project was called Stealth project and later they have renamed to Green project. 
+
+James Gosling, Mike Sheradin and Patrick Naughton were there to develop the project. They met in a place called Aspan/Colarado to start the work with Graphic system. James Gosling decided to use C and C++ languages to develop the project. But the problem what they have faced is C and C++ languages are system dependent. Then James Gosling decided why don't we create our own programming language which is system independent.
+
+In 1991, they have developed one programming language called an OAK. OAK means coffee seed name, it is a national tree for many countries like Germany, France, USA and etc.
+
+Later in 1995, they have renamed OAK to JAVA. Java is a island of an Indonesia where first coffee of seed was produced. During the development of project they were consuming lot of coffee's. Hence symbol of java is a cup of coffee with saucer.
+
+
+
+Interview Questions 
+===================
+Q) Who is the creator of java?
+
+	James Gosling 
+
+Q) In which year java was developed?
+	
+	In 1995
+
+Q) Java originally known as ___ ?
+
+	OAK 	
+
+
+Q) Is java platform dependent or independent?
+
+Java consider as platform independent at byte code level.
+Java is also known as WORA (Write Once Run Anywhere).
+
+Diagram: class6.1
+
+
+
+Q) What is the difference between JDK, JRE and JVM?
+
+JDK 
+----
+JDK stands for Java Development Kit.
+It is a installable software which consist Java Runtime Environment (JRE), Java Virtual Machine (JVM), compiler (javac), interpreter (java), an archiver (.jar), document generator (Javadoc) and other tools needed for java application development.
+
+JRE 
+----
+JRE stands for Java Runtime Environment.
+JRE is a part of a JDK that provides very good environment to run java applications only.
+
+JVM 
+----
+JVM stands for Java Virtual Machine.
+JVM is a part of a JRE which execute our program line by line procedure and it converts byte code to machine code.
+
+
+Diagram: class6.2
+
+
+Q) Is JVM platform dependent or independent?
+
+JVM consider as platform dependent.
+
+
+Q) What is package?
+
+A package is a collection of classes and interfaces.
+
+
+Q) Which package consider as default package in java?
+
+	java.lang package 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+

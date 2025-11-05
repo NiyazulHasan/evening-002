@@ -1,0 +1,411 @@
+Exception Handling 
+==================
+
+Q) What is the difference between Exception and Error?
+
+Exception 
+---------
+	Exception is a problem for which we can provide solution programmatically.
+	Exception will occur due to syntax errors.
+	ex:
+		ArithmeticException 
+		FileNotFoundException 
+		IllegalArgumentException 
+
+Error 
+-----
+	Error is a problem for which we can't provide solution programmatically.
+	Error will occur due to lack of system resources.
+	ex:
+		OutOfMemoryError 
+		StackOverFlowError 
+		LinkageError 
+
+As a part of java application development it is a responsibility of a programmer to provide smooth termination for every java program.
+
+We have two types of terminations.
+
+1) Smooth termination 
+--------------------
+During the program execution suppose if we are not getting any interruption in the middle of the program such type of termination is called smooth termination.
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Hello World!");
+	}
+}
+
+2) Abnormal termination 
+------------------------
+During the program execution suppose if we are getting any interruption in the middle of the program such type of termination is called abnormal termination.
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println(10/0);
+	}
+}
+
+If any exception raised in our program we must and should handle that exception otherwise our program will terminates abnormally.
+
+Here exception will display name of the exception, description of the exception and line number of the exception.
+
+Exception 
+=========
+It is a unwanted , unexpected event which disturbs normal flow of a program.
+
+Exceptions always raise at runtime so they are also known as runtime events. 
+
+The main objective of exception handling is to provide graceful termination.
+
+In java, exception are divided into two types.
+
+1) Predefined exceptions 
+
+2) Userdefined exceptions 
+
+1) Predefined exceptions 
+--------------------------
+Built-In exceptions are called predefined exceptions.
+
+It is classified into two types.
+
+Diagram: class36.1
+
+i) Checked exceptions 
+-------------------
+Exceptions which are checked by the compiler at the time of compilation are called checked exceptions.
+ex:
+	IOException 
+	InterruptedException 
+	EOFException 
+	and etc.	
+
+ii) Unchecked exceptions 
+------------------------
+Exceptions which are checked by the JVM at the time of runtime are called unchecked exceptions.
+ex:
+	ArithmeticException 
+	ClassCastException 
+	IllegalArgumentException 
+	and etc.
+
+If any checked exception raised in our program we must and should handle that exception by using try and catch block.
+
+try block 
+----------
+It is a block which contains risky code.
+
+It associate with catch block and finally block.
+
+If any exception raised in try block then it won't be executed.
+
+It is used to throw the exception to catch block.
+
+
+catch block 
+-----------
+It is a block which contains error handling code.
+
+It always associate with try block.
+
+It is used to catch exception which is thrown by try block.
+
+A catch block will take exception name as a parameter and that name must match with exception class name.
+
+If there is no exception in try block then catch block won't be executed.
+
+syntax:
+------
+	try 
+	{
+		- // Risky Code 
+	}
+	catch(ArithmeticException ae)
+	{
+		- // Error Handling Code 
+	}
+
+ex:1
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println("try-block");	
+		}
+		catch (Exception e)
+		{
+			System.out.println("catch-block");
+		}
+	}
+}
+o/p:
+	try-block 
+
+ex:2
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println(10/0);	
+		}
+		catch (ArithmeticException ae)
+		{
+			System.out.println("catch-block");
+		}
+	}
+}
+o/p:
+	catch-block 
+
+ex:3
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println("stmt1");
+			System.out.println(10/0);
+			System.out.println("stmt2");
+		}
+		catch (ArithmeticException ae)
+		{
+			System.out.println("catch-block");
+		}
+	}
+}
+
+
+Q) Write a java program to display Hello World , without using println() ?
+
+import java.io.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			String str = "Hello World";
+			System.out.write(str.getBytes());
+		}
+		catch (IOException ioe)
+		{
+			System.out.println(ioe.toString());
+		}
+	}
+}
+
+A try block can have multiple catch blocks. 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println(10/0);
+		}
+		catch (ArithmeticException ae)
+		{
+			System.out.println("From AE");
+		}
+		catch (RuntimeException re)
+		{
+			System.out.println("From RE");
+		}
+	}
+}
+
+Various ways to display the exceptions details
+==============================================
+Throwable class defines following three methods to display exception details.
+
+1) printStackTrace() 
+--------------------
+It is used to display name of the exception, description of the exception and line number of the exception.
+
+2) toString() 
+------------
+It is used to display name of the exception and description of the exception.
+
+3) getMessage
+------------
+It is used to display description of the exception.
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println(10/0);
+		}
+		catch (ArithmeticException ae)
+		{
+			ae.printStackTrace();
+			
+			System.out.println("=================");
+			
+			System.out.println(ae.toString());
+			
+			System.out.println("=================");
+			
+			System.out.println(ae.getMessage());
+		}
+		
+	}
+}
+
+We can handle multiple exceptions using single catch block.
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			//System.out.println(10/0);
+			
+			/*
+			int[] arr=null;
+			System.out.println(arr[0]);
+			*/
+			
+			Thread.currentThread().setPriority(11);
+		}
+		catch (ArithmeticException | NullPointerException | IllegalArgumentException e)
+		{
+			e.printStackTrace();
+		}
+	}
+}
+
+Try-with-resources 
+==================
+A try-with-resources introduced in Java 7.
+
+A try-with-resource is a try block which contains one or more resources.
+
+A try-with-resources ensures that each resources must be closed at the end of the statement.
+
+ex:
+---
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		try(Scanner sc = new Scanner(System.in);)
+		{
+			System.out.println("Enter the name :");
+			String name = sc.nextLine();
+		
+			System.out.println("Welcome :"+name);
+		}
+		catch (Exception e )
+		{
+			e.printStackTrace();
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
